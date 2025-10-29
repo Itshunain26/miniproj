@@ -1,0 +1,27 @@
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+export type Patient = {
+    id: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    phone: string;
+    date_of_birth: string;
+    gender: string;
+    blood_group: string | null;
+    address: string | null;
+    city: string | null;
+    emergency_contact_name: string | null;
+    emergency_contact_phone: string | null;
+    medical_history: string | null;
+    allergies: string | null;
+    current_medications: string | null;
+    last_visit_date: string | null;
+    next_appointment_date: string | null;
+    created_at: string;
+};
