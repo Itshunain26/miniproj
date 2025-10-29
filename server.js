@@ -1,8 +1,4 @@
-// ================================
-// Job Portal Backend using Node.js + MongoDB (Mongoose)
-// ================================
 
-// Import Dependencies
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -17,10 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
-// ================================
-// MongoDB Connection (without password)
-// ================================
-// Replace <username> and <cluster> with your details
+
 const mongoURI =
   "mongodb+srv://<username>@cluster0.abcd1.mongodb.net/job_portal?retryWrites=true&w=majority";
 
@@ -33,9 +26,7 @@ mongoose
   .then(() => console.log("✅ MongoDB Connected Successfully"))
   .catch((err) => console.error("❌ MongoDB Connection Failed:", err));
 
-// ================================
-// Job Schema and Model
-// ================================
+
 const jobSchema = new mongoose.Schema(
   {
     title: {
@@ -73,9 +64,7 @@ const jobSchema = new mongoose.Schema(
 
 const Job = mongoose.model("Job", jobSchema);
 
-// ================================
-// API ROUTES
-// ================================
+
 
 // Test Route
 app.get("/", (req, res) => {
@@ -149,9 +138,7 @@ app.delete("/api/jobs/:id", async (req, res) => {
   }
 });
 
-// ================================
-// Start the Server
-// ================================
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
